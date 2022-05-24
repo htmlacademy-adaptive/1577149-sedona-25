@@ -12,32 +12,36 @@
 }
 
 .main-header__image {
-  position: absolute; //Надпись Седона посреди шапки на главной
-  top: 23%;
+  position: absolute;
+  top: 33%;
   left: 50%;
   transform: translateX(-50%);
 }
 
 .main-header__intro {
   display: block;
-  min-height: 389px; //Высота картинки на главной в мобиле
+  width: auto;
+  min-height: 389px;
   background-color: @backgroundblue;
-  background-image: url("/img/svg/intro-triangle.svg"), url("../img/back-desktop.jpg");
+  background-image: url("/img/svg/intro-triangle.svg"), url("../img/back-mobile.jpg");
   background-repeat: no-repeat, no-repeat;
-  background-position: bottom center, 50% 20%;
+  background-position: bottom center, bottom center;
   background-size: auto, cover;
-  text-align: center;
+
+  @media (min-resolution: 2dppx) {
+    background-image: url("/img/svg/intro-triangle.svg"), url("../img/back-mobile@2x.jpg");
+  }
 }
 
 .main-header__image--pages {
-  position: absolute; //Надпись Седона посреди шапки в каталоге
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translateX(-50%);
 }
 
 .main-header__intro--pages {
-  min-height: 158px; //Высота картинки в каталоге в мобиле
+  min-height: 158px;
 }
 
 //Планшет
@@ -48,15 +52,21 @@
   }
 
   .main-header__intro {
-    min-height: 520px; //Высота картинки на главной
+    background-image: url("/img/svg/intro-triangle.svg"), url("../img/back-tablet.jpg");
+    min-height: 520px;
+
+    @media (min-resolution: 2dppx) {
+      background-image: url("/img/svg/intro-triangle.svg"), url("../img/back-tablet@2x.jpg");
+    }
   }
 
   .main-header__image {
-    width: 461px; //Надпись Седона посреди шапки
+    width: 461px;
+    top: 23%;
   }
 
   .main-header__intro--pages {
-    min-height: 290px; //Высота картинки в каталоге
+    min-height: 290px;
   }
 
   .main-header__image--pages {
@@ -67,6 +77,14 @@
 //Десктоп
 
 @media (min-width: @desktop-width) {
+  .main-header__intro {
+    background-image: url("/img/svg/intro-triangle.svg"), url("../img/back-desktop.jpg");
+
+    @media (min-resolution: 2dppx) {
+      background-image: url("/img/svg/intro-triangle.svg"), url("../img/back-desktop@2x.jpg");
+    }
+  }
+
   .main-header__intro--pages {
     min-height: 300px;
   }
